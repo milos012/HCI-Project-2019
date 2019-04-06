@@ -9,26 +9,48 @@ namespace HCIprojekat1.Controllers
 {
     class ForecastController
     {
+        ForecastApp forecastAppInstance;
+        WeatherAPI weatherAPI;
+        IpData locationInfo;
+        public ForecastController()
+        {
+            // Dohvatanje forecastApp instance.
+            forecastAppInstance = ForecastApp.GetInstance();
+
+            // Weather info.
+            weatherAPI = forecastAppInstance.WeatherDataFromJSON();
+
+            // City info.
+            locationInfo = forecastAppInstance.IpAPIData;
+            
+        }
 
         // Metoda koja izvlaci jedino neophodne podatke za prikazivanje trenutne prognoze.
         public CurrentlyDisplayData GetCurrentData()
         {
-            ForecastApp forecastApp = ForecastApp.GetInstance();
-            
-            // Weather info.
-            WeatherAPI wAPI = forecastApp.WeatherDataFromJSON();
-
-            // City info.
-            IpData locationInfo = forecastApp.IpAPIData;
 
             return new CurrentlyDisplayData (
                 locationInfo.city + ", " + locationInfo.country,
                 DateTime.Now.ToString(),
-                wAPI.currently.icon,
-                wAPI.currently.temperature + "` (feels like " + wAPI.currently.apparentTemperature + "`)",
-                wAPI.currently.summary,
-                wAPI.currently.precipProbability != 0 ? "Precipitation probability: " + wAPI.currently.precipProbability : "No probability of precipitation."
+                weatherAPI.currently.icon,
+                weatherAPI.currently.temperature + "°C (feels like " + weatherAPI.currently.apparentTemperature + "°C)",
+                weatherAPI.currently.summary,
+                weatherAPI.currently.precipProbability != 0 ? "Precipitation probability: " + weatherAPI.currently.precipProbability * 100 : "No probability of precipitation."
                 );
+        }
+
+        public HourlyDisplayData GetHourlyData()
+        {
+            // Konstruktor HourlyDisplayData klase interno kreira listu
+            // sa neophodnim informacijama u odgovarajucem formatu.
+            return new HourlyDisplayData(weatherAPI, locationInfo); 
+        }
+
+        public WeeklyDisplayData GetWeeklyData()
+        {
+            // Konstruktor WeeklyDisplayData klase interno kreira listu
+            // sa neophodnim informacijama u odgovarajucem formatu.
+            return new WeeklyDisplayData(weatherAPI, locationInfo);
         }
     }
 }

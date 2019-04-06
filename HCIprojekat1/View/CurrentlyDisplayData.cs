@@ -8,14 +8,14 @@ namespace HCIprojekat1.View
 {
     class CurrentlyDisplayData
     {
-        string Location { get; set; }
-        string Date { get; set; }
-        string Icon { get; set; } 
+        public string Location { get; set; }
+        public string Date { get; set; }
+        public string Icon { get; set; }
 
-        string TemperatureInfo { get; set; }
+        public string TemperatureInfo { get; set; }
 
-        string Message { get; set; }
-        string Probability { get; set; }
+        public string Message { get; set; }
+        public string Probability { get; set; }
 
         public CurrentlyDisplayData(string location, string date, string icon, string temperatureInfo, string message, string probability)
         {

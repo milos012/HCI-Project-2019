@@ -73,6 +73,8 @@
     <Compile Include="Controllers\ForecastController.cs" />
     <Compile Include="ForecastApp.cs" />
     <Compile Include="View\CurrentlyDisplayData.cs" />
+    <Compile Include="View\HourlyDisplayData.cs" />
+    <Compile Include="View\WeeklyDisplayData.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
