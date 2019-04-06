@@ -43,7 +43,7 @@ namespace HCIprojekat1.View
 
         // Lista koja sadrzi informacije o narednih <displayDayCount> dana u 
         // odnosu na trenutak kada je zahtevan request od weather api-ja.
-        private List<DayData> displayDays;
+        private List<DayData> displayDays = new List<DayData>();
 
         public int GetDisplayDayCount()
         {

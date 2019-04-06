@@ -52,5 +52,14 @@ namespace HCIprojekat1.Controllers
             // sa neophodnim informacijama u odgovarajucem formatu.
             return new WeeklyDisplayData(weatherAPI, locationInfo);
         }
+
+        // Metoda koja azurira trenutno posmatrani grad.
+        // Nakon ove metode OBAVEZNO osveziti CurrentDisplayData
+        // objekat pozivom metode GetCurrentData().
+
+        public void ChangeToCity(string city)
+        {
+            forecastAppInstance.ChangeToCity(city);
+        }
     }
 }

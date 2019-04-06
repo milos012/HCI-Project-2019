@@ -42,7 +42,7 @@ namespace HCIprojekat1.View
 
         // Lista koja sadrzi informacije o narednih <displayHourCount> sati 
         // u odnosu na trenutak kada je zahtevan request od weather api-ja.
-        private List<HourData> displayHours;
+        private List<HourData> displayHours = new List<HourData>();
 
         public int GetDisplayHourCount()
         {
@@ -51,6 +51,7 @@ namespace HCIprojekat1.View
 
         public HourlyDisplayData(WeatherAPI wAPI, IpData locationInfo) 
         {
+            
             // Iterira kroz data niz hourly dela JSON response-a i 
             // prikuplja informacije za <displayHourCount> sat(a).
             foreach (WeatherData iter in wAPI.hourly.data)

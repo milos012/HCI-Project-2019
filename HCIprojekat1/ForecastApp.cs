@@ -152,27 +152,28 @@ namespace HCIprojekat1
 
     }
 
+    class CityWeatherInfo
+    {
+        public string lon { get; set; }
+        public string lat { get; set; }
+        
+    }
+
     class ForecastApp
     {
 
         private static ForecastApp instance = null;
 
-        private string weatherURL = "https://api.darksky.net/forecast/817eb851837fd78c2c655a3dc70ba607";
+        private const string weatherURLConst = "https://api.darksky.net/forecast/817eb851837fd78c2c655a3dc70ba607";
+        private string weatherURL = weatherURLConst;
 
         private string ipURL;
         public IpData IpAPIData { get; set; }
 
         public WeatherAPI AllForecastData { get; set; }
 
-        private HttpClient Client;
-
-
         private ForecastApp()
         {
-            HttpClient client = new HttpClient();
-            // Add an Accept header for JSON format.
-            client.DefaultRequestHeaders.Accept.Add(
-            new MediaTypeWithQualityHeaderValue("application/json"));
             string myIP = ParseMyIP();
             SetIPURL("https://ipinfo.io/" + myIP + "/geo?token=3fbd29417bcda3");
             IpAPIData = IPDataInstanceFromJSON();
@@ -193,16 +194,23 @@ namespace HCIprojekat1
             }
         }
 
-        public void SetClient(HttpClient client)
+        // Na osnovu prosledjenog naziva grada interno 
+        // menja podatke dobijene iz Dark Spy API-a.
+        public void ChangeToCity(string city)
         {
-            Client = client;
-        }
+            // 1) Nalazenje latitude i longitude trazenog grada.
+            string openWeatherURL = "api.openweathermap.org/data/2.5/weather?q=" + city;
+            CityWeatherInfo cityWeatherInfo = JsonConvert.DeserializeObject<CityWeatherInfo>(GetJSONStringfromAPI(openWeatherURL));
+            
+            // 2) Azuriranje weather URL-a.
+            weatherURL = weatherURLConst;
+            weatherURL += "/" + cityWeatherInfo.lat + "," + cityWeatherInfo.lon + "?units=ca";
 
-        public HttpClient GetClient()
-        {
-            return Client;
-        }
+            // 3) Promena podataka na osnovu dobijenog JSON response-a.
+            AllForecastData = WeatherDataFromJSON();
 
+        }
+        
         public string GetWeatherURL()
         {
             return weatherURL;
