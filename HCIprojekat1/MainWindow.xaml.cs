@@ -56,17 +56,5 @@ namespace HCIprojekat1
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (forecast.AllForecastData.minutely is null)
-            {
-                MessageBox.Show("greska ima kms");
-            }else
-            {
-                //txtBox1.Text = forecast.AllForecastData.minutely.ToString();
-            }
-            
-            
-        }
     }
 }

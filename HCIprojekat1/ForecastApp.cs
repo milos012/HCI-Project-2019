@@ -27,7 +27,7 @@ namespace HCIprojekat1
 
     class WeatherData
     {
-        public double time { get; set; }
+        public long time { get; set; }
         public double precipIntensity { get; set; }
         public double precipProbability { get; set; }
         public string precipType { get; set; }

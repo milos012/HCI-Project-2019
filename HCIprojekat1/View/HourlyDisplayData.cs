@@ -62,7 +62,7 @@ namespace HCIprojekat1.View
 
 
         // Interna funkcija za generisanje formatiranog ispisa sata (15:00, 16:00, itd).
-        private string GenerateHourLabel(int dataTime)
+        private string GenerateHourLabel(long dataTime)
         {
             var timeSpan = TimeSpan.FromSeconds(dataTime);
             var timeStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
