@@ -154,6 +154,9 @@ namespace HCIprojekat1
 
     class ForecastApp
     {
+
+        private static ForecastApp instance = null;
+
         private string weatherURL = "https://api.darksky.net/forecast/817eb851837fd78c2c655a3dc70ba607";
 
         private string ipURL;
@@ -164,7 +167,7 @@ namespace HCIprojekat1
         private HttpClient Client;
 
 
-        public ForecastApp()
+        private ForecastApp()
         {
             HttpClient client = new HttpClient();
             // Add an Accept header for JSON format.
@@ -176,6 +179,18 @@ namespace HCIprojekat1
             weatherURL += "/" + IpAPIData.loc + "?units=ca";
             AllForecastData = WeatherDataFromJSON();
             
+        }
+
+        public static ForecastApp GetInstance()
+        {
+            if (instance != null)
+            {
+                return new ForecastApp();
+            }
+            else
+            {
+                return instance;
+            }
         }
 
         public void SetClient(HttpClient client)

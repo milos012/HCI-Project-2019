@@ -28,7 +28,7 @@ namespace HCIprojekat1
         {
             InitializeComponent();
 
-            forecast = new ForecastApp();
+            forecast = ForecastApp.GetInstance();
             
 
             //Make any other calls using HttpClient here.
