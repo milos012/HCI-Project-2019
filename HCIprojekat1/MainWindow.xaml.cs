@@ -1,4 +1,6 @@
-﻿using HtmlAgilityPack;
+﻿using HCIprojekat1.Controllers;
+using HCIprojekat1.View;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,10 @@ namespace HCIprojekat1
         public MainWindow()
         {
             InitializeComponent();
+            ForecastController fc = new ForecastController();
+            CurrentlyDisplayData c = fc.GetCurrentData();
+            _TemperatureInfo = c.TemperatureInfo;
+            Temperatura.DataContext = this;
 
             forecast = ForecastApp.GetInstance();
             
@@ -37,6 +43,19 @@ namespace HCIprojekat1
 
         }
 
+        private string _TemperatureInfo;
+        public string TemperatureInfo
+        {
+            get
+            {
+                return _TemperatureInfo;
+            }
+            set
+            {
+                _TemperatureInfo = value;
+            }
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (forecast.AllForecastData.minutely is null)
@@ -44,7 +63,7 @@ namespace HCIprojekat1
                 MessageBox.Show("greska ima kms");
             }else
             {
-                txtBox1.Text = forecast.AllForecastData.minutely.ToString();
+                //txtBox1.Text = forecast.AllForecastData.minutely.ToString();
             }
             
             
