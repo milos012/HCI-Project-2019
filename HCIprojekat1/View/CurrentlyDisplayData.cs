@@ -12,7 +12,7 @@ namespace HCIprojekat1.View
         string Date { get; set; }
         string Icon { get; set; } 
 
-        string TemperatureInfo { get; set; }
+        public string TemperatureInfo { get; set; }
 
         string Message { get; set; }
         string Probability { get; set; }

@@ -183,7 +183,7 @@ namespace HCIprojekat1
 
         public static ForecastApp GetInstance()
         {
-            if (instance != null)
+            if (instance == null)
             {
                 return new ForecastApp();
             }
