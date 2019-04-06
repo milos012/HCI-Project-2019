@@ -54,7 +54,7 @@ namespace HCIprojekat1.View
             
             // Iterira kroz data niz hourly dela JSON response-a i 
             // prikuplja informacije za <displayHourCount> sat(a).
-            foreach (WeatherData iter in wAPI.hourly.data)
+            foreach (CurrentWeatherData iter in wAPI.hourly.data)
             {
                 string hourLabel = GenerateHourLabel(iter.time);
                 displayHours.Add(new HourData(hourLabel, iter.icon, iter.temperature, "" + (iter.precipProbability * 100) + "%"));
@@ -63,7 +63,7 @@ namespace HCIprojekat1.View
 
 
         // Interna funkcija za generisanje formatiranog ispisa sata (15:00, 16:00, itd).
-        private string GenerateHourLabel(int dataTime)
+        private string GenerateHourLabel(long dataTime)
         {
             var timeSpan = TimeSpan.FromSeconds(dataTime);
             var timeStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);

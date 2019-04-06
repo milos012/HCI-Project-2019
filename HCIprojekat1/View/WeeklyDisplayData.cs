@@ -54,16 +54,16 @@ namespace HCIprojekat1.View
         {
             // Iterira kroz data niz daily dela JSON response-a i 
             // prikuplja informacije za <displayDayCount> dan(a).
-            foreach (WeatherData iter in wAPI.daily.data)
+            foreach (DailyWeatherData iter in wAPI.daily.data)
             {
                 string dayLabel = GenerateDayLabel(iter.time);
-                // displayDays.Add(new DayData(dayLabel, iter.icon, "" + iter.temperatureMax + "°C / " + iter.temperatureMin + "°C", "" + (iter.precipProbability * 100) + "%"));
+                displayDays.Add(new DayData(dayLabel, iter.icon, "" + iter.temperatureMax + "°C / " + iter.temperatureMin + "°C", "" + (iter.precipProbability * 100) + "%"));
             }
         }
 
         // Interna funkcija za generisanje formatiranog ispisa dana u nedelji
         // ("Monday, 8 April", "Tuesday, 9 April", itd).
-        private string GenerateDayLabel(int dataTime)
+        private string GenerateDayLabel(long dataTime)
         {
             var timeSpan = TimeSpan.FromSeconds(dataTime);
             var timeStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);

@@ -19,89 +19,25 @@ namespace HCIprojekat1
         public string latitude { get; set; }
         public string longitude { get; set; }
         public string timezone { get; set; }
-        public WeatherData currently { get; set; }
-        public MultiWeatherData hourly { get; set; }
-        public WeatherData minutely { get; set; }
-        public MultiWeatherData daily { get; set; }
-
-        public override string ToString()
-        {
-            return String.Format("Full Weather API Data: latitude:{0}, longitude:{1}, timezone:{2}, currently:{3}, hourly:{4}, minutely:{5}, daily{6}", latitude, longitude, timezone, currently.ToString(), hourly.ToString(), minutely.ToString(), daily.ToString());
-        }
-        
-
-    }
-
-    class MinutelyWeatherData
-    {
-        public string summary { get; set; }
-        public string icon { get; set; }
-        public List<PrecipitationWeatherData> data { get; set; }
-
-        public override string ToString()
-        {
-            string datalist = "";
-            int i = 1;
-            foreach (PrecipitationWeatherData wd in data)
-            {
-                datalist += "data " + i + " " + wd.ToString() + "\n";
-                i += 1;
-            }
-            return String.Format("Minutely Weather Data: summary:{0}, icon:{1}, data:{2}", summary, icon, datalist);
-        }
-
-    }
-    
-    class PrecipitationWeatherData
-    {
-        public int time { get; set; }
-        public double precipIntensity { get; set; }
-        public double precipProbability { get; set; }
-        public string precipType { get; set; }
-
-
-        public override string ToString()
-        {
-            if (precipType is null)
-            {
-                return String.Format("Precipitation Data: time:{0}, probability:{1}, intensity:{2}", time, precipProbability, precipIntensity);
-            }
-            else
-            {
-                return String.Format("Precipitation Data: time:{0}, probability:{1}, intensity:{2}, type:{3}", time, precipProbability, precipIntensity, precipType);
-            }
-            
-        }
-    }
-
-    class MultiWeatherData
-    {
-        public string summary { get; set; }
-        public string icon { get; set; }
-        public List<WeatherData> data { get; set; }
-
-        public override string ToString()
-        {
-            string datalist = "";
-            int i = 1;
-            foreach (WeatherData wd in data)
-            {
-                datalist += "data " + i + " " + wd.ToString() + "\n";
-                i += 1;
-            }
-            return String.Format("Hourly/Daily Weather Data: summary:{0}, icon:{1}, data:{2}", summary, icon, datalist);
-        }
+        public CurrentWeatherData currently { get; set; }
+        public HourlyWeather hourly { get; set; }
+        public DailyWeather daily { get; set; }        
 
     }
 
     class WeatherData
     {
-        public int time { get; set; }
-        public string summary { get; set; }
-        public string icon { get; set; }
+        public long time { get; set; }
         public double precipIntensity { get; set; }
         public double precipProbability { get; set; }
         public string precipType { get; set; }
+
+    }
+
+    class  CurrentWeatherData : WeatherData
+    {
+        public string summary { get; set; }
+        public string icon { get; set; }
         public string temperature { get; set; }
         public string apparentTemperature { get; set; }
         public string dewPoint { get; set; }
@@ -115,13 +51,82 @@ namespace HCIprojekat1
         public string visibility { get; set; }
         public string ozone { get; set; }
 
-        public override string ToString()
-        {
-            return String.Format("Weather Data: time:{0}, summary:{1}, icon:{2}, precipIntensity:{3}, precipProbability:{4}, precipType:{5}, " +
-                "temperature:{6}, apparentTemperature:{7}, dewPoint:{8}, humidity:{9}, pressure:{10}, windSpeed:{11}, " +
-                "windGust:{12}, windBearing:{13}, cloudCover:{14}, uvIndex:{15}, visibility:{16}, ozone:{17}", time, summary, icon, precipIntensity, precipProbability, precipType, temperature, apparentTemperature, dewPoint, humidity, pressure, windSpeed, windGust, windBearing, cloudCover, uvIndex, visibility, ozone);
-        }
     }
+
+    class MinutelynWeatherData : WeatherData
+    { 
+        
+    }
+
+    class DailyWeatherData : WeatherData
+    {
+        public string summary { get; set; }
+        public string icon { get; set; }
+        public string pressure { get; set; }
+        public double precipIntensityMax { get; set; }
+        public double precipIntensityMaxTime { get; set; }
+        public string windSpeed { get; set; }
+        public string windGust { get; set; }
+        public string windBearing { get; set; }
+        public string cloudCover { get; set; }
+        public double dewPoint { get; set; }
+        public double humidity { get; set; }
+        public double temperatureMin { get; set; }
+        public double temperatureMinTime { get; set; }
+        public double temperatureMax { get; set; }
+        public double temperatureMaxTime { get; set; }
+        public double apparentTemperatureMax { get; set; }
+        public double apparentTemperatureMaxTime { get; set; }
+        public double apparentTemperatureMin { get; set; }
+        public double apparentTemperatureMinTime { get; set; }
+        public double temperatureLow { get; set; }
+        public double temperatureLowTime { get; set; }
+        public double temperatureHigh { get; set; }
+        public double temperatureHighTime { get; set; }
+        public double apparentTemperatureHigh { get; set; }
+        public double apparentTemperatureHighTime { get; set; }
+        public double apparentTemperatureLow { get; set; }
+        public double apparentTemperatureLowTime { get; set; }
+        public int uvIndex { get; set; }
+        public double visibility { get; set; }
+        public double ozone { get; set; }
+
+    }
+
+
+    class WeatherWrapper
+    {
+        public string summary { get; set; }
+        public string icon { get; set; }
+        
+    }
+
+    class MinutelyWeather : WeatherWrapper
+    {
+        public List<MinutelynWeatherData> data { get; set; }
+
+
+    }
+
+
+    class CurrentlyWeather :WeatherWrapper
+    {
+        public List<CurrentWeatherData> data { get; set; }
+
+    }
+
+    class DailyWeather : WeatherWrapper
+    {
+        public List<DailyWeatherData> data { get; set; }
+
+    }
+
+    class HourlyWeather : WeatherWrapper
+    {
+        public List<CurrentWeatherData> data { get; set; }
+
+    }
+
 
     class IpData
     {
@@ -143,11 +148,6 @@ namespace HCIprojekat1
             city = grad;
             region = reg;
             country = drzava;
-        }
-
-        public override string ToString()
-        {
-            return "Moja IP adresa: " + ip + "\nMoja lokacija: " + loc + "\nGrad: " + city + "\nRegion: " + region + "\nDrzava: " + country;
         }
 
     }
