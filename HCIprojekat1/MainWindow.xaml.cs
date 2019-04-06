@@ -31,8 +31,22 @@ namespace HCIprojekat1
             InitializeComponent();
             ForecastController fc = new ForecastController();
             CurrentlyDisplayData c = fc.GetCurrentData();
+
             _TemperatureInfo = c.TemperatureInfo;
             Temperatura.DataContext = this;
+            _Location = c.Location;
+            Lokacija.DataContext = this;
+            _Date = c.Date;
+            Datum.DataContext = this;
+
+            _Source = c.Icon;
+            Ikonica.DataContext = this;
+
+            _Message = c.Message;
+            Poruka.DataContext = this;
+            _Probability = c.Probability;
+            Verovatnoca.DataContext = this;
+           
 
             forecast = ForecastApp.GetInstance();
             
@@ -55,6 +69,74 @@ namespace HCIprojekat1
                 _TemperatureInfo = value;
             }
         }
+
+        private string _Location;
+        public string Location
+        {
+            get
+            {
+                return _Location;
+            }
+            set
+            {
+                _Location = value;
+            }
+        }
+
+        private string _Date;
+        public string Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                _Date = value;
+            }
+        }
+
+        // TODO: treba da se nadju ikonice na netu i ovaj Source da se izmeni da prikaze putanju do slike.
+        private string _Source;
+        public string Source
+        {
+            get
+            {
+                return _Source;
+            }
+
+            set
+            {
+                _Source = value;
+            }
+        }
+
+        private string _Message;
+        public string Message
+        {
+            get
+            {
+                return _Message;
+            }
+            set
+            {
+                _Message = value;
+            }
+        }
+
+        private string _Probability;
+        public string Probability
+        {
+            get
+            {
+                return _Probability;
+            }
+            set
+            {
+                _Probability = value;
+            }
+        }
+
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
