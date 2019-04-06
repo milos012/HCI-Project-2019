@@ -54,7 +54,7 @@ namespace HCIprojekat1.View
         {
             // Iterira kroz data niz daily dela JSON response-a i 
             // prikuplja informacije za <displayDayCount> dan(a).
-            foreach (WeatherData iter in wAPI.daily.data)
+            foreach (DailyWeatherData iter in wAPI.daily.data)
             {
                 string dayLabel = GenerateDayLabel(iter.time);
                 // displayDays.Add(new DayData(dayLabel, iter.icon, "" + iter.temperatureMax + "°C / " + iter.temperatureMin + "°C", "" + (iter.precipProbability * 100) + "%"));
