@@ -33,7 +33,7 @@ namespace HCIprojekat1.View
         // Broj dana koji ce se prikazati u "Weekly" tabu aplikacije.
         // Ukoliko se zeli dovuci manji ili veci broj dana iz weather
         // api-ja, neophodno je samo promeniti ovaj broj.
-        private const int displayDayCount = 6;
+        private const int displayDayCount = 7;
 
         // Iterator indeks. Automatski pruza view delu aplikacije informacije
         // o danu sa pozicije <currentIndex>. Automatski se vraca na prvi element 
