@@ -67,11 +67,11 @@
             <MenuItem Header="Jos nesto">
             </MenuItem>-->
         </Menu>
-        <DockPanel DockPanel.Dock ="Top">
+        <!--<DockPanel DockPanel.Dock ="Top">
             <Button DockPanel.Dock="Right" Padding="5" Margin="5" IsCancel="True">Cancel</Button>
             <TextBlock DockPanel.Dock="Left" Padding="5" Margin="5">Insert location:</TextBlock>
             <TextBox DockPanel.Dock="Left" Padding="5" Margin="5"></TextBox>
-        </DockPanel>
+        </DockPanel>-->
         <Grid DockPanel.Dock ="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
