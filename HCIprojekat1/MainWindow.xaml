@@ -59,14 +59,13 @@
     <DockPanel>
         <Menu DockPanel.Dock ="Top">
             <MenuItem Header="Display">
-                <MenuItem Header="Current weather" Click="MenuItem_Click_1"></MenuItem>
-                <MenuItem Header="Hourly weather"></MenuItem>
-                <MenuItem Header="Weekly weather"></MenuItem>
+                <MenuItem Header="Hourly weather" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem Header="Weekly weather" Click="MenuItem_Click_2"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Nesto">
+            <!--<MenuItem Header="Nesto">
             </MenuItem>
             <MenuItem Header="Jos nesto">
-            </MenuItem>
+            </MenuItem>-->
         </Menu>
         <DockPanel DockPanel.Dock ="Top">
             <Button DockPanel.Dock="Right" Padding="5" Margin="5" IsCancel="True">Cancel</Button>
