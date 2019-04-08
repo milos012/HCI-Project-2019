@@ -14,6 +14,45 @@ using HtmlAgilityPack;
 
 namespace HCIprojekat1
 {
+    //generisane klase za google json
+    class GoogleMapsAPI
+    {
+        [JsonProperty("results")]
+        public List<Result> Results { get; set; }
+
+    }
+
+    class Result
+    {
+
+        [JsonProperty("geometry")]
+        public Geometry Geometry { get; set; }
+
+    }
+
+    class Geometry
+    {
+        [JsonProperty("location")]
+        public Location Location { get; set; }
+
+    }
+
+
+    class Location
+    {
+        [JsonProperty("lat")]
+        public double Lat { get; set; }
+
+        [JsonProperty("lng")]
+        public double Lng { get; set; }
+
+        public override string ToString()
+        {
+            return "Location coords: latitude=" + Lat + " longitude=" + Lng;
+        }
+    }
+
+    //klase za weather json
     class WeatherAPI
     {
         public string latitude { get; set; }
@@ -127,7 +166,6 @@ namespace HCIprojekat1
 
     }
 
-
     class IpData
     {
         public string ip { get; set; }
@@ -135,7 +173,7 @@ namespace HCIprojekat1
         public string city { get; set; }
         public string region { get; set; }
         public string country { get; set; }
-
+                
         public IpData()
         {
 
@@ -166,6 +204,8 @@ namespace HCIprojekat1
 
         private const string weatherURLConst = "https://api.darksky.net/forecast/817eb851837fd78c2c655a3dc70ba607";
         private string weatherURL = weatherURLConst;
+        private const string googleURLConst = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+        private const string googleAPIkey = "&key=AIzaSyALup1q-KWbbrz1sOuVVLqo3Xx5WlLnyPo";
 
         private string ipURL;
         public IpData IpAPIData { get; set; }
@@ -199,12 +239,13 @@ namespace HCIprojekat1
         public void ChangeToCity(string city)
         {
             // 1) Nalazenje latitude i longitude trazenog grada.
-            string openWeatherURL = "api.openweathermap.org/data/2.5/weather?q=" + city;
-            CityWeatherInfo cityWeatherInfo = JsonConvert.DeserializeObject<CityWeatherInfo>(GetJSONStringfromAPI(openWeatherURL));
+            string fullGoogleURL = GetGoogleURLConst() + city + GetGoogleAPIKey();
+            GoogleMapsAPI data = GetGoogleAPI(fullGoogleURL);
+            GoogleMapsAPI googleData = GetGoogleAPI(fullGoogleURL);
             
-            // 2) Azuriranje weather URL-a.
+            // 2) Azuriranje google URL-a.
             weatherURL = weatherURLConst;
-            weatherURL += "/" + cityWeatherInfo.lat + "," + cityWeatherInfo.lon + "?units=ca";
+            weatherURL += "/" + data.Results[0].Geometry.Location.Lat + "," + data.Results[0].Geometry.Location.Lng + "?units=ca";
 
             // 3) Promena podataka na osnovu dobijenog JSON response-a.
             AllForecastData = WeatherDataFromJSON();
@@ -226,6 +267,15 @@ namespace HCIprojekat1
             ipURL = url;
         }
 
+        public string GetGoogleURLConst()
+        {
+            return googleURLConst;
+        }
+
+        public string GetGoogleAPIKey()
+        {
+            return googleAPIkey;
+        }
 
         public string GetJSONStringfromAPI(string url)
         {
@@ -276,6 +326,12 @@ namespace HCIprojekat1
 
             string ip = node.OuterHtml;
             return ip.Substring(26, 13);
+        }
+
+        public GoogleMapsAPI GetGoogleAPI(string url)
+        {
+            GoogleMapsAPI ret = JsonConvert.DeserializeObject<GoogleMapsAPI>(GetJSONStringfromAPI(url));
+            return ret;
         }
     }
 }

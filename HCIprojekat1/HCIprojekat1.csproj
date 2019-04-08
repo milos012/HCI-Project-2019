@@ -70,11 +70,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CityInputWindow.xaml.cs">
+      <DependentUpon>CityInputWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ForecastController.cs" />
     <Compile Include="ForecastApp.cs" />
     <Compile Include="View\CurrentlyDisplayData.cs" />
     <Compile Include="View\HourlyDisplayData.cs" />
     <Compile Include="View\WeeklyDisplayData.cs" />
+    <Page Include="CityInputWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
