@@ -165,7 +165,14 @@ namespace HCIprojekat1
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-         
+            var w = new View.HourlyDisplayWindow();
+            w.ShowDialog();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            var w = new View.WeeklyDisplayWindow();
+            w.ShowDialog();
         }
 
     }
