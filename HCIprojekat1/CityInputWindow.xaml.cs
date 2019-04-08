@@ -19,11 +19,11 @@ namespace HCIprojekat1
     /// </summary>
     public partial class CityInputWindow : Window
     {
+        
         private string entryResult;
         public bool isOK = false;
         public CityInputWindow()
         {
-            
             InitializeComponent();
             
         }

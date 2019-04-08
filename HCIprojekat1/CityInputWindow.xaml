@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCIprojekat1"
         mc:Ignorable="d"
-        Title="CityInputWindow" Height="450" Width="800" ShowActivated="False">
+        Title="CityInputWindow" Height="200" Width="500" ShowActivated="False">
     <Grid Margin="15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -16,11 +16,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
-        <Image Source="/WpfTutorialSamples;component/Images/question32.png" Width="32" Height="32" Grid.RowSpan="2" Margin="20,0" />
-
+        
         <Label Name="lblQuestion" Grid.Column="1">Unesite ima grada za koji zelite vremensku prognozu:</Label>
-        <TextBox Name="txtAnswer" Grid.Column="1" Grid.Row="1" MinWidth="250" ToolTip="grad"></TextBox>
+        <TextBox Name="txtAnswer" Grid.Column="1" Grid.Row="1" MinWidth="250"  ToolTip="grad"></TextBox>
 
         <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
             <Button IsDefault="True" Name="btnDialogOk" Click="BtnDialogOk_Click" MinWidth="60" Margin="0,0,10,0">_Ok</Button>

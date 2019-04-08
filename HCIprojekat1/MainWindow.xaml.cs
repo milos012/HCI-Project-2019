@@ -18,45 +18,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.VisualBasic;
-
+using System.ComponentModel;
 namespace HCIprojekat1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        static ForecastApp forecast;
+        //static ForecastApp forecast;
+        static ForecastController fc;
+        
         public MainWindow()
         {
             InitializeComponent();
 
-
-            ForecastController fc = new ForecastController();
-            CurrentlyDisplayData c = fc.GetCurrentData();
-
-            _TemperatureInfo = c.TemperatureInfo;
-            Temperatura.DataContext = this;
-            _Location = c.Location;
-            Lokacija.DataContext = this;
-            _Date = c.Date;
-            Datum.DataContext = this;
-
-            _Source = c.Icon;
-            Ikonica.DataContext = this;
-
-            _Message = c.Message;
-            Poruka.DataContext = this;
-            _Probability = c.Probability;
-            Verovatnoca.DataContext = this;
-
-            forecast = ForecastApp.GetInstance();
-            
-
-            //Make any other calls using HttpClient here.
-
-            //Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
-
+            fc = new ForecastController();
+            RefreshData();
         }
 
         private string _TemperatureInfo;
@@ -69,6 +47,7 @@ namespace HCIprojekat1
             set
             {
                 _TemperatureInfo = value;
+                OnPropertyChanged("TemperatureInfo");
             }
         }
 
@@ -82,6 +61,7 @@ namespace HCIprojekat1
             set
             {
                 _Location = value;
+                OnPropertyChanged("Location");
             }
         }
 
@@ -95,6 +75,7 @@ namespace HCIprojekat1
             set
             {
                 _Date = value;
+                OnPropertyChanged("Date");
             }
         }
 
@@ -110,6 +91,7 @@ namespace HCIprojekat1
             set
             {
                 _Source = value;
+                OnPropertyChanged("TemperatureInfo");
             }
         }
 
@@ -123,6 +105,7 @@ namespace HCIprojekat1
             set
             {
                 _Message = value;
+                OnPropertyChanged("Message");
             }
         }
 
@@ -136,32 +119,50 @@ namespace HCIprojekat1
             set
             {
                 _Probability = value;
+                OnPropertyChanged("Probability");
             }
         }
 
-        private void refreshData()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
         {
-            
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
+        private void RefreshData()
+        {
+            CurrentlyDisplayData c = fc.GetCurrentData();
+
+            TemperatureInfo = c.TemperatureInfo;
+            Temperatura.DataContext = this;
+            Location = c.Location;
+            Lokacija.DataContext = this;
+            Date = c.Date;
+            Datum.DataContext = this;
+
+            Source = c.Icon;
+            Ikonica.DataContext = this;
+
+            Message = c.Message;
+            Poruka.DataContext = this;
+            Probability = c.Probability;
+            Verovatnoca.DataContext = this;
         }
 
         private void ChangeCityButtonClick(object sender, RoutedEventArgs e)
         {
-            
-            CityInputWindow cityInput = new CityInputWindow();
-            
-            cityInput.Show();
-            while(true)
-            
-            {
-                if (cityInput.isOK)
-                {
-                    break;
-                }
-            }
-            MessageBox.Show(cityInput.txtAnswer.Text);
-            //forecast.ChangeToCity("Novi Sad");
-            //refreshData();
+           
+            fc.ChangeToCity(txtSearchNewCity.Text);
+
+            RefreshData();
         }
 
     }
+
+
 }

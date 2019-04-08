@@ -29,13 +29,13 @@ namespace HCIprojekat1.Controllers
         public CurrentlyDisplayData GetCurrentData()
         {
 
-            return new CurrentlyDisplayData (
+            return new CurrentlyDisplayData(
                 locationInfo.city + ", " + locationInfo.country,
                 DateTime.Now.ToString(),
                 weatherAPI.currently.icon,
                 weatherAPI.currently.temperature + "°C (feels like " + weatherAPI.currently.apparentTemperature + "°C)",
                 weatherAPI.currently.summary,
-                weatherAPI.currently.precipProbability != 0 ? "Precipitation probability: " + weatherAPI.currently.precipProbability * 100 : "No probability of precipitation."
+                weatherAPI.currently.precipProbability != 0 ? "Precipitation probability: " + weatherAPI.currently.precipProbability * 100 + "%": "No probability of precipitation."
                 );
         }
 
@@ -60,6 +60,8 @@ namespace HCIprojekat1.Controllers
         public void ChangeToCity(string city)
         {
             forecastAppInstance.ChangeToCity(city);
+            weatherAPI = forecastAppInstance.AllForecastData;
+            locationInfo.city = city;
         }
     }
 }
