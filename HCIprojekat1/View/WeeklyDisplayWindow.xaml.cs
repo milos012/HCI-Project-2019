@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HCIprojekat1.Controllers;
+using HCIprojekat1.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,30 @@ namespace HCIprojekat1.View
         public WeeklyDisplayWindow()
         {
             InitializeComponent();
+
+            ForecastController fc = new ForecastController();
+            WeeklyDisplayData wdd = fc.GetWeeklyData();
+            for (int i = 0; i < wdd.GetDisplayDayCount(); i++)
+            {
+                //Console.WriteLine(i);
+                WeeklyDisplayData.DayData d = wdd.GetNextDayInfo();
+                _Probability = d.Probability;
+                Verovatnoca.DataContext = this;
+                
+            }
+        }
+
+        private string _Probability;
+        public string Probability
+        {
+            get
+            {
+                return _Probability;
+            }
+            set
+            {
+                _Probability = value;
+            }
         }
     }
 }

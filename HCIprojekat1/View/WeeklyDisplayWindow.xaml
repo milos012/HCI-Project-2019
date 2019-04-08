@@ -23,7 +23,7 @@
         <TextBlock Grid.Column="0" Grid.Row="3">Probability:</TextBlock>
 
         <TextBox Grid.Column="1" Grid.Row="0" x:Name="DanasnjiDatum" Text="{Binding Date}" IsReadOnly="True"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="Temperatura" Text="{Binding TemperatureInfo}" IsReadOnly="True"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="Temperatura" Text="{Binding TemperatureInfo}" IsReadOnly="True"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="3" x:Name="Verovatnoca" Text="{Binding Probability}" IsReadOnly="True"></TextBox>
 
         <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
