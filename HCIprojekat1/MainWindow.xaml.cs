@@ -31,8 +31,24 @@ namespace HCIprojekat1
         {
             InitializeComponent();
 
-            refreshData();
-           
+
+            ForecastController fc = new ForecastController();
+            CurrentlyDisplayData c = fc.GetCurrentData();
+
+            _TemperatureInfo = c.TemperatureInfo;
+            Temperatura.DataContext = this;
+            _Location = c.Location;
+            Lokacija.DataContext = this;
+            _Date = c.Date;
+            Datum.DataContext = this;
+
+            _Source = c.Icon;
+            Ikonica.DataContext = this;
+
+            _Message = c.Message;
+            Poruka.DataContext = this;
+            _Probability = c.Probability;
+            Verovatnoca.DataContext = this;
 
             forecast = ForecastApp.GetInstance();
             
@@ -125,23 +141,7 @@ namespace HCIprojekat1
 
         private void refreshData()
         {
-            ForecastController fc = new ForecastController();
-            CurrentlyDisplayData c = fc.GetCurrentData();
-
-            _TemperatureInfo = c.TemperatureInfo;
-            Temperatura.DataContext = this;
-            _Location = c.Location;
-            Lokacija.DataContext = this;
-            _Date = c.Date;
-            Datum.DataContext = this;
-
-            _Source = c.Icon;
-            Ikonica.DataContext = this;
-
-            _Message = c.Message;
-            Poruka.DataContext = this;
-            _Probability = c.Probability;
-            Verovatnoca.DataContext = this;
+            
         }
 
         private void ChangeCityButtonClick(object sender, RoutedEventArgs e)
