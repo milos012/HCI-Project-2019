@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HCIprojekat1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
+    <!--<StackPanel>
         <TextBox Name="txtSearchNewCity" ToolTip="search bar"></TextBox>
         <Button Click="ChangeCityButtonClick">Google API test</Button>
         <Grid>
@@ -32,30 +32,101 @@
             <TextBox Grid.Column="1" Grid.Row="1" x:Name="Datum" Text="{Binding Date}" IsReadOnly="True"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="3" x:Name="Temperatura" Text="{Binding TemperatureInfo}" IsReadOnly="True"></TextBox>
 
-            <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
+            --><!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>--><!--
             <Image x:Name="Ikonica" Source="uri" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="251,26,0,0" Grid.Row="2" Grid.RowSpan="1" VerticalAlignment="Top" Width="100"/>
 
             <TextBox Grid.Column="1" Grid.Row="4" x:Name="Poruka" Text="{Binding Message}" IsReadOnly="True"></TextBox>
             <TextBox Grid.Column="1" Grid.Row="5" x:Name="Verovatnoca" Text="{Binding Probability}" IsReadOnly="True"></TextBox>
-            <!--<DockPanel RenderTransformOrigin="0.501,0.523">-->
-            <!--<TabControl Name="App" Margin="0,36,0,109">
+            --><!--<DockPanel RenderTransformOrigin="0.501,0.523">--><!--
+            --><!--<TabControl Name="App" Margin="0,36,0,109">
                 <TabItem Header="Daily">
-                    -->
-            <!--<Grid Background="#FFE5E5E5"/>-->
-            <!--
+                    --><!--
+            --><!--<Grid Background="#FFE5E5E5"/>--><!--
+            --><!--
                     
                     <TextBox Grid.Column="1" Grid.Row="0" x:Name="Temperatura" Text="{Binding TemperatureInfo}"></TextBox>
                 </TabItem>
                 <TabItem Header="Weekly">
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
-            </TabControl>-->
+            </TabControl>--><!--
 
 
-            <!--</DockPanel>-->
+            --><!--</DockPanel>--><!--
 
         </Grid>
-    </StackPanel>
-    
+    </StackPanel>-->
+    <DockPanel>
+        <Menu DockPanel.Dock ="Top">
+            <MenuItem Header="Display">
+                <MenuItem Header="Current weather" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem Header="Hourly weather"></MenuItem>
+                <MenuItem Header="Weekly weather"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Nesto">
+            </MenuItem>
+            <MenuItem Header="Jos nesto">
+            </MenuItem>
+        </Menu>
+        <DockPanel DockPanel.Dock ="Top">
+            <Button DockPanel.Dock="Right" Padding="5" Margin="5" IsCancel="True">Cancel</Button>
+            <TextBlock DockPanel.Dock="Left" Padding="5" Margin="5">Insert location:</TextBlock>
+            <TextBox DockPanel.Dock="Left" Padding="5" Margin="5"></TextBox>
+        </DockPanel>
+        <Grid DockPanel.Dock ="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Source="/WpfTutorialSamples;component/Images/question32.png" Width="32" Height="32" Grid.RowSpan="2" Margin="20,0" />
+
+            <Label Name="lblQuestion" Grid.Column="1">Unesite ima grada za koji zelite vremensku prognozu:</Label>
+            <TextBox Name="txtAnswer" Grid.Column="1" Grid.Row="1" MinWidth="250" ToolTip="grad"></TextBox>
+
+            <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
+                <Button IsDefault="True" Name="btnDialogOk" MinWidth="60" Margin="0,0,10,0">_Submit</Button>
+            </WrapPanel>
+
+        </Grid>
+        <Grid DockPanel.Dock ="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0">Location:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1">Date:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2">Icon:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3">Temperature:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="4">Message:</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="5">Probability:</TextBlock>
+            <TextBox Grid.Column="1" Grid.Row="0" x:Name="Lokacija" Text="{Binding Location}" IsReadOnly="True"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="1" x:Name="Datum" Text="{Binding Date}" IsReadOnly="True"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="3" x:Name="Temperatura" Text="{Binding TemperatureInfo}" IsReadOnly="True"></TextBox>
+
+            
+            <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
+            
+            <Image x:Name="Ikonica" Source="uri" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="251,26,0,0" Grid.Row="2" Grid.RowSpan="1" VerticalAlignment="Top" Width="100"/>
+
+            <TextBox Grid.Column="1" Grid.Row="4" x:Name="Poruka" Text="{Binding Message}" IsReadOnly="True"></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="5" x:Name="Verovatnoca" Text="{Binding Probability}" IsReadOnly="True"></TextBox>
+
+
+        </Grid>
+    </DockPanel>
 
 </Window>
