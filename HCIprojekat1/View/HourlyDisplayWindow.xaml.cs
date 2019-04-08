@@ -35,11 +35,11 @@ namespace HCIprojekat1.View
                 switch (i)
                 {
                     case 0:
-                        _Time = h.Time;
+                        _Time1 = h.Time;
                         Vreme1.DataContext = this;
-                        _TemperatureInfo = h.Temperature;
+                        _TemperatureInfo1 = h.Temperature;
                         Temperatura1.DataContext = this;
-                        _Probability = h.Probability;
+                        _Probability1 = h.Probability;
                         Verovatnoca1.DataContext = this;
                         break;
                     case 1:
@@ -66,42 +66,42 @@ namespace HCIprojekat1.View
             
         }
 
-        private string _Time;
-        public string Time
+        private string _Time1;
+        public string Time1
         {
             get
             {
-                return _Time;
+                return _Time1;
             }
             set
             {
-                _Time = value;
+                _Time1 = value;
             }
         }
 
-        private string _TemperatureInfo;
-        public string TemperatureInfo
+        private string _TemperatureInfo1;
+        public string TemperatureInfo1
         {
             get
             {
-                return _TemperatureInfo;
+                return _TemperatureInfo1;
             }
             set
             {
-                _TemperatureInfo = value;
+                _TemperatureInfo1 = value;
             }
         }
 
-        private string _Probability;
-        public string Probability
+        private string _Probability1;
+        public string Probability1
         {
             get
             {
-                return _Probability;
+                return _Probability1;
             }
             set
             {
-                _Probability = value;
+                _Probability1 = value;
             }
         }
 

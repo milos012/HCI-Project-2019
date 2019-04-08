@@ -56,7 +56,7 @@ namespace HCIprojekat1.View
             foreach (DailyWeatherData iter in wAPI.daily.data)
             {
                 string dayLabel = GenerateDayLabel(iter.time);
-                displayDays.Add(new DayData(dayLabel, iter.icon, "" + Math.Round(iter.temperatureMax,0) + "°C / " + Math.Round(iter.temperatureMin,0) + "°C", "" + (iter.precipProbability * 100) + "%"));
+                displayDays.Add(new DayData(dayLabel, iter.icon, "Max: " + Math.Round(iter.temperatureMax,0) + "°C \nMin: " + Math.Round(iter.temperatureMin,0) + "°C", "" + (iter.precipProbability * 100) + "%"));
             }
         }
 

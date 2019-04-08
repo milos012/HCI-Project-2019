@@ -130,15 +130,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\clear.png" />
+    <Resource Include="Icons\clear-day.png" />
     <Resource Include="Icons\few-clouds.png" />
-    <Resource Include="Icons\mostly-cloudy.png" />
+    <Resource Include="Icons\cloudy.png" />
     <Resource Include="Icons\overcast.png" />
-    <Resource Include="Icons\partly-cloudy.png" />
+    <Resource Include="Icons\partly-cloudy-day.png" />
     <Resource Include="Icons\rain-showers.png" />
     <Resource Include="Icons\rain.png" />
     <Resource Include="Icons\snow.png" />
     <Resource Include="Icons\thunderstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\clear-night.png" />
+    <Resource Include="Icons\fog.png" />
+    <Resource Include="Icons\partly-cloudy-night.png" />
+    <Resource Include="Icons\wind.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
