@@ -36,112 +36,9 @@ namespace HCIprojekat1
             fc = new ForecastController();
 
 
-            WeeklyDisplayData wdd = fc.GetWeeklyData();
-            for (int i = 0; i < wdd.GetDisplayDayCount(); i++)
-            {
-                //Console.WriteLine(i);
-                WeeklyDisplayData.DayData d = wdd.GetNextDayInfo();
-                switch (i)
-                {
-                    case 0:
-                        _Date = d.DateLabel;
-                        DanasnjiDatum1.DataContext = this;
-                        _TemperatureInfo = d.Temperature;
-                        Temperatura1.DataContext = this;
-                        _Probability = d.Probability;
-                        Verovatnoca1.DataContext = this;
-                        break;
-                    case 1:
-                        _Date2 = d.DateLabel;
-                        DanasnjiDatum2.DataContext = this;
-                        _TemperatureInfo2 = d.Temperature;
-                        Temperatura2.DataContext = this;
-                        _Probability2 = d.Probability;
-                        Verovatnoca2.DataContext = this;
-                        break;
-                    case 2:
-                        _Date3 = d.DateLabel;
-                        DanasnjiDatum3.DataContext = this;
-                        _TemperatureInfo3 = d.Temperature;
-                        Temperatura3.DataContext = this;
-                        _Probability3 = d.Probability;
-                        Verovatnoca3.DataContext = this;
-                        break;
-                    case 3:
-                        _Date4 = d.DateLabel;
-                        DanasnjiDatum4.DataContext = this;
-                        _TemperatureInfo4 = d.Temperature;
-                        Temperatura4.DataContext = this;
-                        _Probability4 = d.Probability;
-                        Verovatnoca4.DataContext = this;
-                        break;
-                    case 4:
-                        _Date5 = d.DateLabel;
-                        DanasnjiDatum5.DataContext = this;
-                        _TemperatureInfo5 = d.Temperature;
-                        Temperatura5.DataContext = this;
-                        _Probability5 = d.Probability;
-                        Verovatnoca5.DataContext = this;
-                        break;
-                    case 5:
-                        _Date6 = d.DateLabel;
-                        DanasnjiDatum6.DataContext = this;
-                        _TemperatureInfo6 = d.Temperature;
-                        Temperatura6.DataContext = this;
-                        _Probability6 = d.Probability;
-                        Verovatnoca6.DataContext = this;
-                        break;
-                    case 6:
-                        _Date7 = d.DateLabel;
-                        DanasnjiDatum7.DataContext = this;
-                        _TemperatureInfo7 = d.Temperature;
-                        Temperatura7.DataContext = this;
-                        _Probability7 = d.Probability;
-                        Verovatnoca7.DataContext = this;
-                        break;
-                    default:
-                        break;
+            
 
-                }
-
-
-            }
-
-            HourlyDisplayData hh = fc.GetHourlyData();
-            for (int i = 0; i < hh.GetDisplayHourCount(); i++)
-            {
-                HourlyDisplayData.HourData h = hh.GetNextHourInfo();
-                switch (i)
-                {
-                    case 0:
-                        _Time11 = h.Time;
-                        Vreme11.DataContext = this;
-                        _TemperatureInfo11 = h.Temperature;
-                        Temperatura11.DataContext = this;
-                        _Probability11 = h.Probability;
-                        Verovatnoca11.DataContext = this;
-                        break;
-                    case 1:
-                        _Time22 = h.Time;
-                        Vreme22.DataContext = this;
-                        _TemperatureInfo22 = h.Temperature;
-                        Temperatura22.DataContext = this;
-                        _Probability22 = h.Probability;
-                        Verovatnoca22.DataContext = this;
-                        break;
-                    case 2:
-                        _Time33 = h.Time;
-                        Vreme33.DataContext = this;
-                        _TemperatureInfo33 = h.Temperature;
-                        Temperatura33.DataContext = this;
-                        _Probability33 = h.Probability;
-                        Verovatnoca33.DataContext = this;
-                        break;
-                    default:
-                        break;
-                }
-
-            }
+            
             //WeeklyDisplayData wdd = fc.GetWeeklyData();
             //HourlyDisplayData hdd = fc.GetHourlyData();
             //for (int i = 0; i <= 5;i++)
@@ -237,7 +134,7 @@ namespace HCIprojekat1
             set
             {
                 _Source = value;
-                OnPropertyChanged("TemperatureInfo");
+                //OnPropertyChanged("TemperatureInfo");
             }
         }
 
@@ -265,7 +162,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability = value;
-                OnPropertyChanged("Probability1");
+                OnPropertyChanged("Probability");
             }
         }
 
@@ -305,6 +202,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability1 = value;
+                OnPropertyChanged("Probability1");
             }
         }
 
@@ -344,6 +242,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability2 = value;
+                OnPropertyChanged("Probability2");
             }
         }
 
@@ -383,6 +282,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability3 = value;
+                OnPropertyChanged("Probability3");
             }
         }
 
@@ -422,6 +322,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability4 = value;
+                OnPropertyChanged("Probability4");
             }
         }
 
@@ -461,6 +362,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability5 = value;
+                OnPropertyChanged("Probability5");
             }
         }
 
@@ -500,6 +402,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability6 = value;
+                OnPropertyChanged("Probability6");
             }
         }
 
@@ -539,11 +442,12 @@ namespace HCIprojekat1
             set
             {
                 _Probability7 = value;
+                OnPropertyChanged("Probability7");
             }
         }
 
         private string _Time11;
-        public string Time1
+        public string Time11
         {
             get
             {
@@ -617,6 +521,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability22 = value;
+                OnPropertyChanged("Probability22");
             }
         }
 
@@ -656,6 +561,7 @@ namespace HCIprojekat1
             set
             {
                 _Probability33 = value;
+                OnPropertyChanged("Probability33");
             }
         }
 
@@ -681,13 +587,118 @@ namespace HCIprojekat1
             Date = c.Date;
             Datum.DataContext = this;
 
-            Source = c.Icon;
-            Ikonica.DataContext = this;
 
             Message = c.Message;
             Poruka.DataContext = this;
             Probability = c.Probability;
             Verovatnoca.DataContext = this;
+
+            HourlyDisplayData hh = fc.GetHourlyData();
+            for (int i = 0; i < hh.GetDisplayHourCount(); i++)
+            {
+                HourlyDisplayData.HourData h = hh.GetNextHourInfo();
+                switch (i)
+                {
+                    case 0:
+                        Time11 = h.Time;
+                        Vreme11.DataContext = this;
+                        TemperatureInfo11 = h.Temperature;
+                        Temperatura11.DataContext = this;
+                        Probability11 = h.Probability;
+                        Verovatnoca11.DataContext = this;
+                        break;
+                    case 1:
+                        Time22 = h.Time;
+                        Vreme22.DataContext = this;
+                        TemperatureInfo22 = h.Temperature;
+                        Temperatura22.DataContext = this;
+                        Probability22 = h.Probability;
+                        Verovatnoca22.DataContext = this;
+                        break;
+                    case 2:
+                        Time33 = h.Time;
+                        Vreme33.DataContext = this;
+                        TemperatureInfo33 = h.Temperature;
+                        Temperatura33.DataContext = this;
+                        Probability33 = h.Probability;
+                        Verovatnoca33.DataContext = this;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            WeeklyDisplayData wdd = fc.GetWeeklyData();
+            for (int i = 0; i < wdd.GetDisplayDayCount(); i++)
+            {
+                //Console.WriteLine(i);
+                WeeklyDisplayData.DayData d = wdd.GetNextDayInfo();
+                switch (i)
+                {
+                    case 0:
+                        Date1 = d.DateLabel;
+                        DanasnjiDatum1.DataContext = this;
+                        TemperatureInfo1 = d.Temperature;
+                        Temperatura1.DataContext = this;
+                        Probability1 = d.Probability;
+                        Verovatnoca1.DataContext = this;
+                        break;
+                    case 1:
+                        Date2 = d.DateLabel;
+                        DanasnjiDatum2.DataContext = this;
+                        TemperatureInfo2 = d.Temperature;
+                        Temperatura2.DataContext = this;
+                        Probability2 = d.Probability;
+                        Verovatnoca2.DataContext = this;
+                        break;
+                    case 2:
+                        Date3 = d.DateLabel;
+                        DanasnjiDatum3.DataContext = this;
+                        TemperatureInfo3 = d.Temperature;
+                        Temperatura3.DataContext = this;
+                        Probability3 = d.Probability;
+                        Verovatnoca3.DataContext = this;
+                        break;
+                    case 3:
+                        Date4 = d.DateLabel;
+                        DanasnjiDatum4.DataContext = this;
+                        TemperatureInfo4 = d.Temperature;
+                        Temperatura4.DataContext = this;
+                        Probability4 = d.Probability;
+                        Verovatnoca4.DataContext = this;
+                        break;
+                    case 4:
+                        Date5 = d.DateLabel;
+                        DanasnjiDatum5.DataContext = this;
+                        TemperatureInfo5 = d.Temperature;
+                        Temperatura5.DataContext = this;
+                        Probability5 = d.Probability;
+                        Verovatnoca5.DataContext = this;
+                        break;
+                    case 5:
+                        Date6 = d.DateLabel;
+                        DanasnjiDatum6.DataContext = this;
+                        TemperatureInfo6 = d.Temperature;
+                        Temperatura6.DataContext = this;
+                        Probability6 = d.Probability;
+                        Verovatnoca6.DataContext = this;
+                        break;
+                    case 6:
+                        Date7 = d.DateLabel;
+                        DanasnjiDatum7.DataContext = this;
+                        TemperatureInfo7 = d.Temperature;
+                        Temperatura7.DataContext = this;
+                        Probability7 = d.Probability;
+                        Verovatnoca7.DataContext = this;
+                        break;
+                    default:
+                        break;
+
+                }
+
+
+            }
         }
 
         private void ChangeCityButtonClick(object sender, RoutedEventArgs e)

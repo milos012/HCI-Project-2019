@@ -7,17 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800" MinWidth="400" MinHeight="400">
     <DockPanel>
-        <Menu DockPanel.Dock ="Top">
+        <!--<Menu DockPanel.Dock ="Top">
             <MenuItem Header="Display" Click="MenuItem_Click">
-                <MenuItem Header="Current weather" ></MenuItem>
                 <MenuItem Header="Hourly weather" Click="MenuItem_Click_1"></MenuItem>
                 <MenuItem Header="Weekly weather" Click="MenuItem_Click_2"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Nesto">
-            </MenuItem>
-            <MenuItem Header="Jos nesto">
-            </MenuItem>
-        </Menu>
+            
+        </Menu>-->
         <DockPanel DockPanel.Dock ="Top">
             <Button DockPanel.Dock="Right" Padding="5" Margin="5" Click="ChangeCityButtonClick">submit</Button>
             <TextBlock DockPanel.Dock="Left" Padding="5" Margin="5">Insert location:</TextBlock>
@@ -54,7 +50,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBox  x:Name="Temperatura" Text="{Binding TemperatureInfo}" IsReadOnly="True" FontSize="30"  TextWrapping="Wrap" MinWidth="300" MinHeight="200" BorderThickness="0"/>
-                                <Image x:Name="Ikonica" Source="uri"  HorizontalAlignment="Stretch"/>
+                                
                             </StackPanel>
 
                             <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
@@ -86,35 +82,35 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Grid.Row="0">Time:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="1">Icon:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="2">Temperature:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="3">Probability:</TextBlock>
+                            
+                            <TextBlock Grid.Column="0" Grid.Row="1">Temperature:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="2">Probability:</TextBlock>
 
                             <TextBox Grid.Column="1" Grid.Row="0" x:Name="Vreme11" Text="{Binding Date11}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="2" x:Name="Temperatura11" Text="{Binding TemperatureInfo11}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="3" x:Name="Verovatnoca11" Text="{Binding Probability11}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="1" x:Name="Temperatura11" Text="{Binding TemperatureInfo11}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="2" x:Name="Verovatnoca11" Text="{Binding Probability11}" IsReadOnly="True"></TextBox>
 
                             <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
 
                             <TextBlock Grid.Column="0" Grid.Row="4">Time:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="5">Icon:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="6">Temperature:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="7">Probability:</TextBlock>
+                            
+                            <TextBlock Grid.Column="0" Grid.Row="5">Temperature:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="6">Probability:</TextBlock>
 
                             <TextBox Grid.Column="1" Grid.Row="4" x:Name="Vreme22" Text="{Binding Date22}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="6" x:Name="Temperatura22" Text="{Binding TemperatureInfo22}" IsReadOnly="True" Margin="0.4,0.4,-0.8,32.4" Grid.RowSpan="2"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="7" x:Name="Verovatnoca22" Text="{Binding Probability22}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="5" x:Name="Temperatura22" Text="{Binding TemperatureInfo22}" IsReadOnly="True" Margin="0.4,0.4,-0.8,32.4" Grid.RowSpan="2"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="6" x:Name="Verovatnoca22" Text="{Binding Probability22}" IsReadOnly="True"></TextBox>
 
                             <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
 
                             <TextBlock Grid.Column="0" Grid.Row="8">Time:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="9">Icon:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="10">Temperature:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="11">Probability:</TextBlock>
+                           
+                            <TextBlock Grid.Column="0" Grid.Row="9">Temperature:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="10">Probability:</TextBlock>
 
                             <TextBox Grid.Column="1" Grid.Row="8" x:Name="Vreme33" Text="{Binding Date33}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="10" x:Name="Temperatura33" Text="{Binding TemperatureInfo33}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="11" x:Name="Verovatnoca33" Text="{Binding Probability33}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="9" x:Name="Temperatura33" Text="{Binding TemperatureInfo33}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="10" x:Name="Verovatnoca33" Text="{Binding Probability33}" IsReadOnly="True"></TextBox>
 
                             <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
 
@@ -127,7 +123,7 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
-                                <RowDefinition />
+                                
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
@@ -142,31 +138,31 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Grid.Row="0">Date label:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="1">Icon:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="2">Temperature:</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="3">Probability:</TextBlock>
+                            
+                            <TextBlock Grid.Column="0" Grid.Row="1">Temperature:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="2">Probability:</TextBlock>
 
                             <TextBox Grid.Column="1" Grid.Row="0" x:Name="DanasnjiDatum1" Text="{Binding Date1}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="2" x:Name="Temperatura1" Text="{Binding TemperatureInfo1}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="1" Grid.Row="3" x:Name="Verovatnoca1" Text="{Binding Probability1}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="1" x:Name="Temperatura1" Text="{Binding TemperatureInfo1}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="1" Grid.Row="2" x:Name="Verovatnoca1" Text="{Binding Probability1}" IsReadOnly="True"></TextBox>
                             <TextBox Grid.Column="2" Grid.Row="0" x:Name="DanasnjiDatum2" Text="{Binding Date2}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="2" Grid.Row="2" x:Name="Temperatura2" Text="{Binding TemperatureInfo2}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="2" Grid.Row="3" x:Name="Verovatnoca2" Text="{Binding Probability2}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="2" Grid.Row="1" x:Name="Temperatura2" Text="{Binding TemperatureInfo2}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="2" Grid.Row="2" x:Name="Verovatnoca2" Text="{Binding Probability2}" IsReadOnly="True"></TextBox>
                             <TextBox Grid.Column="3" Grid.Row="0" x:Name="DanasnjiDatum3" Text="{Binding Date3}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="3" Grid.Row="2" x:Name="Temperatura3" Text="{Binding TemperatureInfo3}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="3" Grid.Row="3" x:Name="Verovatnoca3" Text="{Binding Probability3}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="3" Grid.Row="1" x:Name="Temperatura3" Text="{Binding TemperatureInfo3}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="3" Grid.Row="2" x:Name="Verovatnoca3" Text="{Binding Probability3}" IsReadOnly="True"></TextBox>
                             <TextBox Grid.Column="4" Grid.Row="0" x:Name="DanasnjiDatum4" Text="{Binding Date4}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="4" Grid.Row="2" x:Name="Temperatura4" Text="{Binding TemperatureInfo4}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="4" Grid.Row="3" x:Name="Verovatnoca4" Text="{Binding Probability4}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="4" Grid.Row="1" x:Name="Temperatura4" Text="{Binding TemperatureInfo4}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="4" Grid.Row="2" x:Name="Verovatnoca4" Text="{Binding Probability4}" IsReadOnly="True"></TextBox>
                             <TextBox Grid.Column="5" Grid.Row="0" x:Name="DanasnjiDatum5" Text="{Binding Date5}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="5" Grid.Row="2" x:Name="Temperatura5" Text="{Binding TemperatureInfo5}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="5" Grid.Row="3" x:Name="Verovatnoca5" Text="{Binding Probability5}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="5" Grid.Row="1" x:Name="Temperatura5" Text="{Binding TemperatureInfo5}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="5" Grid.Row="2" x:Name="Verovatnoca5" Text="{Binding Probability5}" IsReadOnly="True"></TextBox>
                             <TextBox Grid.Column="6" Grid.Row="0" x:Name="DanasnjiDatum6" Text="{Binding Date6}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="6" Grid.Row="2" x:Name="Temperatura6" Text="{Binding TemperatureInfo6}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="6" Grid.Row="3" x:Name="Verovatnoca6" Text="{Binding Probability6}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="6" Grid.Row="1" x:Name="Temperatura6" Text="{Binding TemperatureInfo6}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="6" Grid.Row="2" x:Name="Verovatnoca6" Text="{Binding Probability6}" IsReadOnly="True"></TextBox>
                             <TextBox Grid.Column="7" Grid.Row="0" x:Name="DanasnjiDatum7" Text="{Binding Date7}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="7" Grid.Row="2" x:Name="Temperatura7" Text="{Binding TemperatureInfo7}" IsReadOnly="True"></TextBox>
-                            <TextBox Grid.Column="7" Grid.Row="3" x:Name="Verovatnoca7" Text="{Binding Probability7}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="7" Grid.Row="1" x:Name="Temperatura7" Text="{Binding TemperatureInfo7}" IsReadOnly="True"></TextBox>
+                            <TextBox Grid.Column="7" Grid.Row="2" x:Name="Verovatnoca7" Text="{Binding Probability7}" IsReadOnly="True"></TextBox>
 
                             <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
 
