@@ -19,6 +19,7 @@ namespace HCIprojekat1.View
     /// <summary>
     /// Interaction logic for HourlyDisplayWindow.xaml
     /// </summary>
+    
     public partial class HourlyDisplayWindow : Window
     {
         static ForecastApp forecast;

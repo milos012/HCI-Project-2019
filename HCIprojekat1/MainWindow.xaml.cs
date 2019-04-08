@@ -34,6 +34,45 @@ namespace HCIprojekat1
             InitializeComponent();
 
             fc = new ForecastController();
+
+            WeeklyDisplayData wdd = fc.GetWeeklyData();
+            HourlyDisplayData hdd = fc.GetHourlyData();
+            for (int i = 0; i <= 5;i++)
+            {
+                WeeklyDisplayData.DayData day = wdd.GetNextDayInfo();
+                StackPanel sp = new StackPanel { Orientation = Orientation.Horizontal };
+                TextBox tb = new TextBox { Name = "TemperatureWeekDay" + i, MinHeight = 100, MinWidth = 100 };
+                TextBox tb1 = new TextBox { Name = "ProbabilityWeekDay" + i, MinHeight = 100, MinWidth = 100 };
+                TextBox tb2 = new TextBox { Name = "ProbabilityWeekDay" + i, MinHeight = 100, MinWidth = 100 };
+                Image ikonica = new Image { Name = "Ikonica" + i};
+                tb.Text = day.Temperature;
+                tb1.Text = day.Probability;
+                tb2.Text = day.DateLabel;
+                sp.Children.Add(tb);
+                sp.Children.Add(tb1);
+                sp.Children.Add(tb2);
+                tab3.Children.Add(sp);
+            }
+
+            for (int i = 0; i <= 2; i++)
+            {
+                HourlyDisplayData.HourData hour = hdd.GetNextHourInfo();
+                StackPanel sp = new StackPanel { Orientation = Orientation.Horizontal };
+                TextBox tb = new TextBox { Name = "TemperatureHour" + i, MinHeight = 100, MinWidth = 100 };
+                TextBox tb1 = new TextBox { Name = "ProbabilityHour" + i, MinHeight = 100, MinWidth = 100 };
+                TextBox tb2 = new TextBox { Name = "TimeHour" + i, MinHeight = 100, MinWidth=100};
+                Image ikonica = new Image { Name = "Ikonica" + i };
+                tb.Text = hour.Time;
+                tb1.Text = hour.Temperature;
+                tb2.Text = hour.Probability;
+
+                sp.Children.Add(tb);
+                sp.Children.Add(tb1);
+                sp.Children.Add(tb2);
+                sp.Children.Add(ikonica);
+                tab2.Children.Add(sp);
+            }
+
             RefreshData();
         }
 
@@ -157,7 +196,7 @@ namespace HCIprojekat1
         private void ChangeCityButtonClick(object sender, RoutedEventArgs e)
         {
            
-            fc.ChangeToCity(txtSearchNewCity.Text);
+            fc.ChangeToCity(txtLocationInput.Text);
 
             RefreshData();
         }
@@ -167,6 +206,10 @@ namespace HCIprojekat1
          
         }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 

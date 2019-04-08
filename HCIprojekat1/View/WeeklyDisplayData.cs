@@ -19,7 +19,6 @@ namespace HCIprojekat1.View
             // Formatirani ispis temperature u formatu (<max_temp> °C / <min_temp> °C).
             public string Temperature { get; set; }
 
-
             public string Probability { get; set; }
 
             public DayData(string dateLabel, string icon, string temperature, string probability)
@@ -57,7 +56,7 @@ namespace HCIprojekat1.View
             foreach (DailyWeatherData iter in wAPI.daily.data)
             {
                 string dayLabel = GenerateDayLabel(iter.time);
-                displayDays.Add(new DayData(dayLabel, iter.icon, "" + iter.temperatureMax + "°C / " + iter.temperatureMin + "°C", "" + (iter.precipProbability * 100) + "%"));
+                displayDays.Add(new DayData(dayLabel, iter.icon, "" + Math.Round(iter.temperatureMax,0) + "°C / " + Math.Round(iter.temperatureMin,0) + "°C", "" + (iter.precipProbability * 100) + "%"));
             }
         }
 
@@ -74,7 +73,39 @@ namespace HCIprojekat1.View
             var day = localDateTime.Day.ToString();
             var month = localDateTime.Month.ToString();
 
-            return dayOfTheWeek + ", " + day + month;
+            return dayOfTheWeek + ", " + day + ". " + monthNumberToString(month);
+        }
+
+        private string monthNumberToString(string month)
+        {
+            switch(month)
+            {
+                case "1":
+                    return "January";
+                case "2":
+                    return "February";
+                case "3":
+                    return "March";
+                case "4":
+                    return "April";
+                case "5":
+                    return "May";
+                case "6":
+                    return "June";
+                case "7":
+                    return "July";
+                case "8":
+                    return "August";
+                case "9":
+                    return "September";
+                case "10":
+                    return "Oktober";
+                case "11":
+                    return "November";
+                case "12":
+                    return "December";
+            }
+            return "";
         }
 
         // Dohvata element iz liste sa lokacije <currentIndex>, uz

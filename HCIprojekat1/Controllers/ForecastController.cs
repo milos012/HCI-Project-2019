@@ -30,10 +30,10 @@ namespace HCIprojekat1.Controllers
         {
 
             return new CurrentlyDisplayData(
-                locationInfo.city + ", " + locationInfo.country,
+                locationInfo.city,
                 DateTime.Now.ToString(),
                 weatherAPI.currently.icon,
-                weatherAPI.currently.temperature + "°C (feels like " + weatherAPI.currently.apparentTemperature + "°C)",
+                Math.Round(weatherAPI.currently.temperature,0) + "°C (feels like " + Math.Round(weatherAPI.currently.apparentTemperature,0) + "°C)",
                 weatherAPI.currently.summary,
                 weatherAPI.currently.precipProbability != 0 ? "Precipitation probability: " + weatherAPI.currently.precipProbability * 100 + "%": "No probability of precipitation."
                 );

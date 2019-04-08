@@ -19,9 +19,12 @@ namespace HCIprojekat1.View
     /// </summary>
     public partial class WeeklyDisplayWindow : Window
     {
+        public Window parent; 
         public WeeklyDisplayWindow()
         {
+            
             InitializeComponent();
+                       
         }
     }
 }

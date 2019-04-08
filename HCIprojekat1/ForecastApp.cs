@@ -77,8 +77,8 @@ namespace HCIprojekat1
     {
         public string summary { get; set; }
         public string icon { get; set; }
-        public string temperature { get; set; }
-        public string apparentTemperature { get; set; }
+        public double temperature { get; set; }
+        public double apparentTemperature { get; set; }
         public string dewPoint { get; set; }
         public string humidity { get; set; }
         public string pressure { get; set; }

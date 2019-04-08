@@ -57,10 +57,9 @@ namespace HCIprojekat1.View
             foreach (CurrentWeatherData iter in wAPI.hourly.data)
             {
                 string hourLabel = GenerateHourLabel(iter.time);
-                displayHours.Add(new HourData(hourLabel, iter.icon, iter.temperature, "" + (iter.precipProbability * 100) + "%"));
+                displayHours.Add(new HourData(hourLabel, iter.icon, Math.Round(iter.temperature,0) + "°C", "" + (iter.precipProbability * 100) + " %"));
             }
         }
-
 
         // Interna funkcija za generisanje formatiranog ispisa sata (15:00, 16:00, itd).
         private string GenerateHourLabel(long dataTime)

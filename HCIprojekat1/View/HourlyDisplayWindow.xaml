@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCIprojekat1.View"
         mc:Ignorable="d"
-        Title="HourlyDisplayWindow" Height="450" Width="800">
-    <Grid>
+        Title="HourlyDisplayWindow" Height="160.309" Width="710.309" MinHeight="300" MinWidth="500">
+    <ScrollViewer>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -40,13 +41,13 @@
         <TextBlock Grid.Column="0" Grid.Row="5">Icon:</TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="6">Temperature:</TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="7">Probability:</TextBlock>
-
+        
         <TextBox Grid.Column="1" Grid.Row="4" x:Name="Vreme2" Text="{Binding Date}" IsReadOnly="True"></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="5" x:Name="Temperatura2" Text="{Binding TemperatureInfo}" IsReadOnly="True"></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="Temperatura2" Text="{Binding TemperatureInfo}" IsReadOnly="True" Margin="0.4,22,-0.8,22.2" Grid.RowSpan="3"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="7" x:Name="Verovatnoca2" Text="{Binding Probability}" IsReadOnly="True"></TextBox>
-
+        
         <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
-
+        
         <TextBlock Grid.Column="0" Grid.Row="8">Time:</TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="9">Icon:</TextBlock>
         <TextBlock Grid.Column="0" Grid.Row="10">Temperature:</TextBlock>
@@ -56,7 +57,9 @@
         <TextBox Grid.Column="1" Grid.Row="9" x:Name="Temperatura3" Text="{Binding TemperatureInfo}" IsReadOnly="True"></TextBox>
         <TextBox Grid.Column="1" Grid.Row="11" x:Name="Verovatnoca3" Text="{Binding Probability}" IsReadOnly="True"></TextBox>
 
-        <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
+            <!--<TextBox Grid.Column="1" Grid.Row="2" x:Name="Ikonica" Text="{Binding Iconn}"></TextBox>-->
 
     </Grid>
+    </ScrollViewer>
+    
 </Window>

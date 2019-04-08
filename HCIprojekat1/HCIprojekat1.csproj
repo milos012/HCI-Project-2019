@@ -70,9 +70,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CityInputWindow.xaml.cs">
-      <DependentUpon>CityInputWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\ForecastController.cs" />
     <Compile Include="ForecastApp.cs" />
     <Compile Include="View\CurrentlyDisplayData.cs" />
@@ -84,10 +81,6 @@
     <Compile Include="View\WeeklyDisplayWindow.xaml.cs">
       <DependentUpon>WeeklyDisplayWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="CityInputWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +128,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\clear.png" />
+    <Resource Include="Icons\few-clouds.png" />
+    <Resource Include="Icons\mostly-cloudy.png" />
+    <Resource Include="Icons\overcast.png" />
+    <Resource Include="Icons\partly-cloudy.png" />
+    <Resource Include="Icons\rain-showers.png" />
+    <Resource Include="Icons\rain.png" />
+    <Resource Include="Icons\snow.png" />
+    <Resource Include="Icons\thunderstorm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
